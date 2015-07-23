@@ -1,26 +1,37 @@
+package nes;
 
 import java.io.*;
+
+import org.apache.commons.io.FileDeleteStrategy;
 public class Decrypt2
 {
 	public static int alpha [] = new int [26];
-	public static void main(String m)throws IOException
+	public static void main(String m, String user)throws IOException
 	{
-		writeDecrypt1(m);
-		setFrequency("de1.txt");
+		writeDecrypt1(m, user);
+		setFrequency("C:\\My Files\\Temp\\de1.txt");
 		writeDecrypt2();
 	}
 	public static int maxFrequency()
 	{
-		int max=0;
+		int max=0, pos=0;
 		for (int i=0;i<26;i++)
 		{
 			if(alpha[i]>max)
-				max=alpha[i];
+			{	max=alpha[i];
+				pos=i;
+			}
 		}
+		System.out.println((char)(pos+65));
 		return max;
 	}
 	public static void setFrequency(String s) throws IOException
 	{
+		int i=0;
+		for(i=0;i<26;i++)
+		{
+			alpha[i]=0;
+		}
 		File file = new File(s);
 		FileInputStream fis = new FileInputStream(file);
 		try
@@ -35,7 +46,7 @@ public class Decrypt2
 					alpha[content-65]++;
 			}
 		}
-		catch (IOException e) 
+		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
@@ -45,19 +56,17 @@ public class Decrypt2
 	{
 		BufferedReader bufferedReader = null;
     	BufferedWriter bufferedWriter = null;
-    	int max, max2;
+    	int max;
     	char ch, xh;
-    	try 
+    	try
     	{
-    	    bufferedReader = new BufferedReader(new FileReader("de1.txt"));
-    	    bufferedWriter = new BufferedWriter(new FileWriter("de2.txt"));
+    	    bufferedReader = new BufferedReader(new FileReader("C:\\My Files\\Temp\\de1.txt"));
+    	    bufferedWriter = new BufferedWriter(new FileWriter("C:\\My Files\\Temp\\de2.txt"));
     	    String s = "";
     	    max=maxFrequency();
-    	    max2=max;
- 			while(max>26)
+    	   while(max>26)
  				max-=26;
- 			while(max2>9)
- 				max2-=9;
+ 			System.out.println(max);
  			while ((s = bufferedReader.readLine()) != null)
     	    {
     	        for(int i=0;i<s.length();i++)
@@ -70,14 +79,7 @@ public class Decrypt2
     						xh=(char)(xh+26);
     					bufferedWriter.write(xh);
     				}
-    	        	else if (ch>='0'&&ch<='9')
-    				{
-    					xh=(char)(ch-max2);
-    					if(xh<'0'&&ch>='0'&&ch<='9')
-    						xh=(char)(xh+9);
-    					bufferedWriter.write(xh);
-    				}
-    				else 
+    	        	else
     				{
     					bufferedWriter.write(ch);
     				}
@@ -86,14 +88,14 @@ public class Decrypt2
     	        bufferedWriter.flush();
     	    }
     	}
-    	catch (FileNotFoundException e) 
+    	catch (FileNotFoundException e)
     	{
     	    e.printStackTrace();
     	}
     	catch (IOException e)
     	{
     	    e.printStackTrace();
-    	} 
+    	}
     	finally
     	{
     	    try
@@ -107,15 +109,15 @@ public class Decrypt2
 			}
     	}
     }
-	public static void writeDecrypt1(String st)throws IOException
+	public static void writeDecrypt1(String st,String user)throws IOException
 	{
 		BufferedReader bufferedReader2 = null;
     	BufferedWriter bufferedWriter2 = null;
     	char ch;
-    	try 
+    	try
     	{
-    	    bufferedReader2 = new BufferedReader(new FileReader("result.txt"));
-    	    bufferedWriter2 = new BufferedWriter(new FileWriter("de1.txt"));
+    	    bufferedReader2 = new BufferedReader(new FileReader("C:\\My Files\\"+user+"\\result.txt"));
+    	    bufferedWriter2 = new BufferedWriter(new FileWriter("C:\\My Files\\Temp\\de1.txt"));
     	    String s = "";
     	    while ((s = bufferedReader2.readLine()) != null)
     	    {
@@ -125,7 +127,7 @@ public class Decrypt2
     	        	ch=s.charAt(i);
     	        	if ((int)ch>122)
     	        		t+=ch;
-    				else 
+    				else
     				{
     					int k=0, j=0;
     					String v="";
@@ -155,14 +157,14 @@ public class Decrypt2
     	        bufferedWriter2.flush();
     	    }
     	}
-    	catch (FileNotFoundException e) 
+    	catch (FileNotFoundException e)
     	{
     	    e.printStackTrace();
     	}
     	catch (IOException e)
     	{
     	    e.printStackTrace();
-    	} 
+    	}
     	finally
     	{
     	    try
@@ -172,7 +174,7 @@ public class Decrypt2
 			}
     	    catch (IOException e)
     	    {
-				e.printStackTrace();
+    	    	e.printStackTrace();
 			}
     	}
     }

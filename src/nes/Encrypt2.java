@@ -1,27 +1,36 @@
+package nes;
 
 import java.io.*;
 public class Encrypt2
 {
 	public static int alpha [] = new int [26];
-	public static void main(String m)throws IOException
+	public static void main(String m,String file,String audio,String t,String funique)throws IOException
 	{
-		String s="Integrity.txt";
+		String s="C:\\My Files\\Temp\\"+file;
 		setFrequency(s);
 		writeEncrypt1(s);
-		writeEncrypt2(m);
+		writeEncrypt2(m,audio,t,funique);
 	}
 	public static int maxFrequency()
 	{
-		int max=0;
+		int max=0, pos=0;
 		for (int i=0;i<26;i++)
 		{
 			if(alpha[i]>max)
-				max=alpha[i];
+			{	max=alpha[i];
+				pos=i;
+			}
 		}
+		System.out.println((char)(pos+65));
 		return max;
 	}
 	public static void setFrequency(String s) throws IOException
 	{
+		int i=0;
+		for(i=0;i<26;i++)
+		{
+			alpha[i]=0;
+		}
 		File file = new File(s);
 		FileInputStream fis = new FileInputStream(file);
 		try
@@ -35,9 +44,9 @@ public class Encrypt2
 				else if(ch>='A'&&ch<='Z')
 					alpha[content-65]++;
 			}
- 
+
 		}
-		catch (IOException e) 
+		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
@@ -47,19 +56,17 @@ public class Encrypt2
 	{
 		BufferedReader bufferedReader = null;
     	BufferedWriter bufferedWriter = null;
-    	int max, max2;
+    	int max;
     	char ch, xh;
-    	try 
+    	try
     	{
     	    bufferedReader = new BufferedReader(new FileReader(st));
-    	    bufferedWriter = new BufferedWriter(new FileWriter("out1.txt"));
+    	    bufferedWriter = new BufferedWriter(new FileWriter("C:\\My Files\\Temp\\out1.txt"));
     	    String s = "";
     	    max=maxFrequency();
-    	    max2=max;
- 			while(max>26)
+    	    while(max>26)
  				max-=26;
- 			while(max2>9)
- 				max2-=9;
+ 			System.out.println(max);
  			while ((s = bufferedReader.readLine()) != null)
     	    {
     	        for(int i=0;i<s.length();i++)
@@ -72,14 +79,7 @@ public class Encrypt2
     						xh=(char)(xh-26);
     					bufferedWriter.write(xh);
     				}
-    	        	else if(ch>='0'&&ch<='9')
-    	        	{
-    	        		xh=(char)(ch+max2);
-    	        		if(xh>'9'&&ch>='0'&&ch<='9')
-    	        			xh=(char)(xh-9);
-    					bufferedWriter.write(xh);
-    	        	}
-    				else 
+    	        	else
     				{
     					bufferedWriter.write(ch);
     				}
@@ -88,14 +88,14 @@ public class Encrypt2
     	        bufferedWriter.flush();
     	    }
     	}
-    	catch (FileNotFoundException e) 
+    	catch (FileNotFoundException e)
     	{
     	    e.printStackTrace();
     	}
     	catch (IOException e)
     	{
     	    e.printStackTrace();
-    	} 
+    	}
     	finally
     	{
     	    try
@@ -109,15 +109,15 @@ public class Encrypt2
 			}
     	}
     }
-	public static void writeEncrypt2(String st)throws IOException
+	public static void writeEncrypt2(String st,String audio,String target,String funique)throws IOException
 	{
 		BufferedReader bufferedReader2 = null;
     	BufferedWriter bufferedWriter2 = null;
     	char ch;
-    	try 
+    	try
     	{
-    	    bufferedReader2 = new BufferedReader(new FileReader("out1.txt"));
-    	    bufferedWriter2 = new BufferedWriter(new FileWriter("out2.txt"));
+    	    bufferedReader2 = new BufferedReader(new FileReader("C:\\My Files\\Temp\\out1.txt"));
+    	    bufferedWriter2 = new BufferedWriter(new FileWriter("C:\\My Files\\Temp\\out2.txt"));
     	    String s = "";
     	    while ((s = bufferedReader2.readLine()) != null)
     	    {
@@ -128,7 +128,7 @@ public class Encrypt2
     	        	ch=s.charAt(i);
     	        	if ((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
     	        		t+=ch;
-    				else 
+    				else
     				{
     					flag=1;
     					int k=0, j=0;
@@ -162,22 +162,22 @@ public class Encrypt2
     	        bufferedWriter2.flush();
     	    }
     	}
-    	catch (FileNotFoundException e) 
+    	catch (FileNotFoundException e)
     	{
     	    e.printStackTrace();
     	}
     	catch (IOException e)
     	{
     	    e.printStackTrace();
-    	} 
+    	}
     	finally
     	{
     	    try
     	    {
 				bufferedReader2.close();
 				bufferedWriter2.close();
-				embed.main("out2.txt");
-				
+				embed.main("C:\\My Files\\Temp\\out2.txt",audio,target,funique);
+
 			}
     	    catch (IOException e)
     	    {
