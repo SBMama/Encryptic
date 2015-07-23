@@ -79,7 +79,7 @@ ne.dec();
 				<div class="row">
 						<div class="7u 12u(mobilep)">
 						
-				<a href="#" class="button special big">View</a>
+				<a href="../../../My Files/Temp/de2.txt"" class="button special big">View</a>
 						</div>
 						<div class="5u 12u(mobilep)">
 						<a href="#" class="button special big">Download</a>
