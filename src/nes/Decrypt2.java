@@ -10,7 +10,7 @@ public class Decrypt2
 	{
 		writeDecrypt1(m, user);
 		setFrequency("C:\\My Files\\Temp\\de1.txt");
-		writeDecrypt2();
+		writeDecrypt2(user);
 	}
 	public static int maxFrequency()
 	{
@@ -52,7 +52,7 @@ public class Decrypt2
 		}
 		fis.close();
 	}
-	public static void writeDecrypt2()throws IOException
+	public static void writeDecrypt2(String user)throws IOException
 	{
 		BufferedReader bufferedReader = null;
     	BufferedWriter bufferedWriter = null;
@@ -61,7 +61,7 @@ public class Decrypt2
     	try
     	{
     	    bufferedReader = new BufferedReader(new FileReader("C:\\My Files\\Temp\\de1.txt"));
-    	    bufferedWriter = new BufferedWriter(new FileWriter("C:\\My Files\\Temp\\de2.txt"));
+    	    bufferedWriter = new BufferedWriter(new FileWriter("D:\\"+user+"de2.txt"));
     	    String s = "";
     	    max=maxFrequency();
     	   while(max>26)

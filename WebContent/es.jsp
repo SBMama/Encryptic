@@ -10,8 +10,11 @@
 	<%
 	
 	Class.forName("com.mysql.jdbc.Driver");
+	//Connection conn = DriverManager.getConnection("jdbc:mysql://127.8.201.130:3306/encrypticbeta","adminLg3gGi2","5jcfHJjIpe7v");
+	
 	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/encrypt","root","");
-    String fileName1 =session.getAttribute("fname1").toString();
+	
+	String fileName1 =session.getAttribute("fname1").toString();
     String fileName2 =session.getAttribute("fname2").toString();
 	String targetid = request.getParameter("target");
 	String description = request.getParameter("des");

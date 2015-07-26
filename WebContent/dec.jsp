@@ -1,9 +1,5 @@
 
-<!--
-	Alpha by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>Decrypt your files</title>
@@ -33,7 +29,7 @@
 String username=session.getAttribute("user").toString();
 
 String filename=request.getParameter("file");
-out.println("Success!");
+//out.println("Success!");
 
 nes.EncryptionStart ne = new nes.EncryptionStart(username,filename);
 
@@ -49,42 +45,47 @@ ne.dec();
 				<h1><a href="index.html">Encryptic</a> [beta]</h1>
 				<nav id="nav">
 					<ul>
-						<li><strong> <%out.print("Welcome "+username); %></strong></li>
+					<li><a href="#" class="button big"><%= username%></a></li>
 						<li><a href="dashboard.jsp">Home</a></li>
-						<li>
-							<a href="" class="icon fa-angle-down">Quick Links</a>
-							<ul>
-								<li><a href="encrypt.html">Encrypt</a></li>
-								<li><a href="decrypt.html">Decrypt</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li>
-									<!--<a href="">Submenu</a>
-									<ul>
-										<li><a href="#">Option One</a></li>
-										<li><a href="#">Option Two</a></li>
-										<li><a href="#">Option Three</a></li>
-										<li><a href="#">Option Four</a></li>
-									</ul>
-								</li>
-								-->
-							</ul>
-						</li>
+						
 						<li><a href="logout.jsp"><h4>Logout</h4></a></li>
 					</ul>
 				</nav>
 			</header>
-<div class="box">
+			<div class="box">
+			<Center><h1>Success!</h1></Center>
+			</div>
+			<div class="box">
 				<h3><strong>Decrypted File/Database</strong> </h3>
-				<p> You can either download your encrypted file/database or view it here.</p>
+				<p> You can download your decrypted file now.</p>
+				<p> After downloading, please open in notepad and save as filename.html </p>
 				<div class="row">
 						<div class="7u 12u(mobilep)">
-						
-				<a href="../../../My Files/Temp/de2.txt"" class="button special big">View</a>
+						<% String downloadlink ="file:\\D"+":\\"+username+"de2.txt";%>
+				<!--  <a href="<c:url value = username+"de2.txt"/>" class="button special big">View/Download</a>-->
+					<a href="download.jsp" class="button special big ">Download</a>
+					
+					
 						</div>
+						
 						<div class="5u 12u(mobilep)">
-						<a href="#" class="button special big">Download</a>
+						<a href="dashboard.jsp" class="button special big">Dashboard</a>
 						</div>
 				</div>
 				</div><div>
 </body>
+<footer id="footer">
+				<!--  <ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+				</ul> -->
+				<ul class="copyright">
+					<li>&copy; Encryptic. A Project by Subhayan Bhattacharya & Bhaskar Ghosh dastidar</li><li> <a href=#></a></li>
+				</ul>
+			</footer>
+
 </html>

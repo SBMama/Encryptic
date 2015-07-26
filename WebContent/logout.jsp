@@ -4,16 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Logging out</title>
 </head>
 <body >
-<script>
-function loggedout(){
-	alert("You have been logged out successfully");
-	location.href="login.html";
-}
 
-</script>
 
 
   <% 
@@ -21,9 +15,17 @@ function loggedout(){
     s.invalidate();
   %>
   
+ 
   <script>
+function loggedout(){
+	alert("You have been logged out successfully");
+	location.href="login.html";
+}
+
+</script>
+ <script>
   loggedout();
   </script>
-  
+  <center>Logged out!</center>
 </body>
 </html>

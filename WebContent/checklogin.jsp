@@ -8,8 +8,9 @@
 	<%@ page import = "java.sql.*" %>
 	<%int i=0,j=0;
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/encrypt","root","");
-    Statement stmt  = conn.createStatement();
+	Connection conn = DriverManager.getConnection("jdbc:mysql://127.8.201.130:3306/encrypticbeta","adminLg3gGi2","5jcfHJjIpe7v");
+	//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/encrypt","root","");
+	Statement stmt  = conn.createStatement();
 	String[] users=new String[10];
 	String[] pass=new String[10];
 	String sql="select  id,pass from login"; 

@@ -8,6 +8,11 @@ public class Showfiles {
 	{
 		String Fname[] = new String [100];
 		File folder = new File("C:\\My Files\\"+user);
+		
+		//File folder = new File("\\"+user);
+		
+		
+		
 		File[] listOfFiles = folder.listFiles();
 
 		    for (int i = 0; i < listOfFiles.length; i++) {

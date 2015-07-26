@@ -1,3 +1,4 @@
+package nes;
 
 import java.util.*;
 import java.util.zip.Deflater;
@@ -7,59 +8,14 @@ import java.io.*;
 import java.nio.charset.Charset;
 public class embed
 {
-   public static void main( String fname) 
+	
+	
+	public String user ="";
+	//EncryptionStart obj = new EncryptionStart();
+	//user=obj.user;
+   public static void main(String fname,String music,String target,String funique) throws IOException 
     {
-	   /*
 	   
-        File file2 = new File("a.zip");
-        FileOutputStream fout = null;
-		try {
-			fout = new FileOutputStream(file2);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}  
-		String file=fname;
-		int x=1;
-        File f2=null;
-        String ff = "a.zip";
-        String content = null;
-        	try {
-        		content = new Scanner(new File(file)).useDelimiter("\\Z").next();
-        	} catch (FileNotFoundException e2) {
-        		// TODO Auto-generated catch block
-        		e2.printStackTrace();
-        	}
-        	f2 = new File(ff);
-            FileOutputStream fout2 = null;
-			try {
-				fout2 = new FileOutputStream(f2);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	ZipOutputStream zip = new ZipOutputStream(fout2);  
-            zip.setMethod(ZipOutputStream.DEFLATED); 
-            zip.setLevel(9); 
-        try {
-			zip.putNextEntry(new ZipEntry(file));
-		} catch (IOException e1) {
-			System.out.println("not found");
-			e1.printStackTrace();
-		} 
-        try {
-			zip.write(content.getBytes(Charset.forName("UTF-8")));
-			zip.closeEntry();
-			 zip.close(); 
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}  
-        file=ff;
-        ff=(String)("a"+x+".zip");
-        x++;
-        */
-       
 	   FileInputStream fileInputStream=null;
        File files = new File(fname);
         int length = (int) files.length();
@@ -75,8 +31,16 @@ public class embed
         	e.printStackTrace();
         }
         FileInputStream fileInputStream2=null;
-        File file21 = new File("audio.mp3");
-        byte[] bFile2 = new byte[(int) file21.length()];
+        
+        File file21 = new File("C:\\My Files\\Temp\\"+music);
+       
+        //File file21 = new File("\\Temp\\"+music);
+        
+        
+        
+        int length2 = (int) file21.length();
+       
+        byte[] bFile2 = new byte[length2];
         try 
         {
             fileInputStream2 = new FileInputStream(file21);
@@ -87,7 +51,12 @@ public class embed
         {
         	e.printStackTrace();
         }
-        File file3 = new File("embedaudio2.mp3");
+        File file3 = new File("C:\\My Files\\"+target+"\\"+funique+".mp3");
+        
+        //File file3 = new File("\\"+target+"\\"+funique+".mp3");
+        
+        
+        
         FileOutputStream fos = null;
         int k=100;
         Random ra = new Random();

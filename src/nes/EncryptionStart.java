@@ -112,6 +112,10 @@ public EncryptionStart(String user,String filename)
 		c.main(d,user);*/
 		
 	}
+	public static void main(String[] args)
+	{
+		System.out.println("Testing");
+	}
 	/*	public void deleteFiles()
 		{
 		        System.gc();

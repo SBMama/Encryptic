@@ -14,8 +14,8 @@ String username=session.getAttribute("user").toString();
    File file ;
 String[] fnames = new String[2];
 int c =0;
-   int maxFileSize = 5000 * 1024;
-   int maxMemSize = 5000 * 1024;
+   int maxFileSize = 9000 * 1024;
+   int maxMemSize = 9000 * 1024;
    ServletContext context = pageContext.getServletContext();
    String filePath = context.getInitParameter("file-upload");
 
@@ -28,7 +28,12 @@ int c =0;
       factory.setSizeThreshold(maxMemSize);
       // Location to save data that is larger than maxMemSize.
       factory.setRepository(new File("C:\\My Files\\Temp"));
+		
+      
+      //factory.setRepository(new File(".\\Temp"));
 
+      
+      
       // Create a new file upload handler
       ServletFileUpload upload = new ServletFileUpload(factory);
       // maximum file size to be uploaded.

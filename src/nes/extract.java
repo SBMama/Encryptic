@@ -1,3 +1,4 @@
+package nes;
 
 import java.nio.*;
 import java.util.*;
@@ -6,11 +7,17 @@ import java.util.zip.ZipInputStream;
 import java.io.*;
 public class extract
 {
-   public static void main( String[] args ) throws IOException
+   public static void main( String user,String funique ) throws IOException
     {
     	FileInputStream fileInputStream=null;
-        File file = new File("embedaudio2.mp3");
-        byte[] bFile = new byte[(int) file.length()];
+    	System.out.println(funique);
+    	File file = new File("C:\\My Files\\"+user+"\\"+funique+".mp3");
+        
+    	 //File file = new File("\\"+user+"\\"+funique+".mp3");
+         
+    	
+    	
+    	byte[] bFile = new byte[(int) file.length()];
         try 
         {
             fileInputStream = new FileInputStream(file);
@@ -38,7 +45,12 @@ public class extract
         {
             bFile2[i]=bFile[k];
         }
-        File file3 = new File("result.txt");
+        File file3 = new File("C:\\My Files\\"+user+"\\result.txt");
+        
+
+        //File file3 = new File("\\"+user+"\\result.txt");
+        
+        
         FileOutputStream fos = null;
         try 
         {
@@ -52,57 +64,6 @@ public class extract
         }
        
         
-        /*
-        File destDir = new File("result.txt");
-        ZipInputStream zipIn = null;
-		try {
-			zipIn = new ZipInputStream(new FileInputStream("result.zip"));
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-        ZipEntry entry = null;
-		try {
-			entry = zipIn.getNextEntry();
-			 while (entry != null) {
-		            String filePath =  entry.getName();
-		           try {
-							extractFile(zipIn, filePath);
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-		            
-		            try {
-						zipIn.closeEntry();
-						 entry = zipIn.getNextEntry();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		           
-		        }
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        // iterates over entries in the zip file
-       
-        try {
-			zipIn.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-    }
-   private static void extractFile(ZipInputStream zipIn, String filePath) throws IOException {
-       BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filePath));
-       byte[] bytesIn = new byte[4096];
-       int read = 0;
-       while ((read = zipIn.read(bytesIn)) != -1) {
-           bos.write(bytesIn, 0, read);
-       }
-       bos.close();*/
+    
    }
 }

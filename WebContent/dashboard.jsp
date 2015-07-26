@@ -46,7 +46,10 @@ String Name="",Email="";
 String username=session.getAttribute("user").toString();
 r.generateKeys(username);
 Class.forName("com.mysql.jdbc.Driver");
+//Connection conn = DriverManager.getConnection("jdbc:mysql://127.8.201.130:3306/encrypticbeta","adminLg3gGi2","5jcfHJjIpe7v");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/encrypt","root","");
+
+
 Statement stmt  = conn.createStatement();    
 String sql="";    
 sql="select name,email from login where id='"+username+"'"; 
@@ -80,6 +83,9 @@ e.printStackTrace();
 Date_today=date.substring(0,10);
 
 File dir = new File("C:\\My Files\\"+username);
+
+//File dir = new File(".\\"+username);
+
 dir.mkdir();
 
 String newreceieve="",datereceive="",namereceieve="",descriptionrecieve="";
@@ -102,37 +108,49 @@ catch(SQLException e) {
     e.printStackTrace();
     } stmt.close();rs.close();stmt=null;rs=null;
   notification ="You've received an encrypted file from "+newreceieve+" on "+datereceive+". ";
-
+  Date dd = new Date();
 
 %>
-<nav class="navbar navbar-inverse navbar-fixed-right" role="navigation">
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
+            <ul class="nav navbar-right top-nav">
             <div class="navbar-header">
-                <a class="navbar-brand" href="logout.jsp">Logout</a>
+               
+                <a class="navbar-brand" href="dashboard.jsp">Dashboard.</a> 
             </div>
-			</nav>
-
-       
-
-        <div id="page-wrapper">
+            
+            <!-- Top Menu Items -->
+            
+               <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%=Name %> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="dashboard.jsp"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="logout.jsp"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+</nav>
+<hr><br>
+ <div id="page-wrapper">
 
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-						  <%  Date dd = new Date();%>
-  
-                            <small>Welcome</small><% out.println("  "+Name); %>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> <% out.println(dd.toString()); %>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
+               
                 <!-- /.row -->
 
                 <div class="row">
@@ -151,6 +169,7 @@ catch(SQLException e) {
                         </div>
                     </div>
                 </div>
+                
                 <!-- /.row -->
 
                 <div class="row">
@@ -163,7 +182,7 @@ catch(SQLException e) {
                                     </div>
                                     <div class="col-xs-9 text-right">
                                        <div class="huge">Encrypt</div>
-                                        <div>New Comments!</div>
+                                        <div>Encrypt new file</div>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +205,7 @@ catch(SQLException e) {
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">Decrypt</div>
-                                        <div>New Tasks!</div>
+                                        <div>Decrypt received file</div>
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +227,7 @@ catch(SQLException e) {
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">Keys</div>
-                                        <div>New Orders!</div>
+                                        <div>keys for today</div>
                                     </div>
                                 </div>
                             </div>
@@ -358,7 +377,7 @@ catch(SQLException e) {
                             
                             </div>
                         </div>
-                    </div>
+                    
                     
                 </div>
                 <!-- /.row -->
@@ -456,5 +475,7 @@ e.printStackTrace();
 
 </script>
 </body>
-
+				<ul>
+					<li>&copy; Encryptic. A Project by Subhayan Bhattacharya & Bhaskar Ghosh dastidar</li><li> <a href=#></a></li>
+				</ul>
 </html>

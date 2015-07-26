@@ -29,7 +29,7 @@
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #e89980;
+		color: #fff;
 		text-decoration: none;
 	}
 
@@ -58,6 +58,8 @@
 		font-weight: 300;
 		line-height: 1em;
 		margin: 0 0 0.5em 0;
+		color:#003366;
+		font-weight:bold;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -81,6 +83,7 @@
 		font-size: 1.1em;
 		line-height: 1.5em;
 		letter-spacing: 0;
+		font-weignt:bolder;
 	}
 
 	h5 {
@@ -95,8 +98,9 @@
 		letter-spacing: 0;
 	}
 	h7 {
-	font-size: 2.1em;
+	font-size: 1.6em;
 	line-height: 0.7em;
+	
 	
 	letter-spacing: 0;
 	color: #68228b;
@@ -856,10 +860,10 @@
 		-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #666;
+		background-color: #FFFF85;
 		border-radius: 6px;
 		border: 0;
-		color: #ffffff;
+		color: #003366;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 400;
@@ -924,6 +928,7 @@
 			font-size: 1.25em;
 			height: 2.7em;
 			line-height: 2.7em;
+			color:#003366;
 		}
 
 		input[type="submit"].alt,
@@ -940,6 +945,7 @@
 			input[type="button"].alt:hover,
 			.button.alt:hover {
 				background-color: #f8f8f8;
+				color:ffffff;
 			}
 
 			input[type="submit"].alt:active,
@@ -1021,7 +1027,7 @@
 	}
 
 		#header h1 {
-			color: inherit;
+			color: #003366;
 			height: inherit;
 			left: 1.25em;
 			line-height: inherit;
@@ -1334,15 +1340,15 @@
 			}
 
 	body.landing #main {
-		margin-top: -14em;
+		margin-top: 0em;
 		
 	}
 
 /* Footer */
 
 	#footer {
-		background: #f0f0f0;
-		padding: 4em 0 6em 0;
+		background: inherit;
+		padding: 1em 0 6em 0;
 		text-align: center;
 	}
 
@@ -1360,11 +1366,11 @@
 			}
 
 		#footer .copyright {
-			color: #999;
-			font-size: 0.9em;
+			color: #f12389;
+			font-size: 1em;
 			line-height: 1em;
 			margin: 2em 0 0 0;
-			padding: 0;
+			padding: 2;
 			text-align: center;
 		}
 
@@ -1391,8 +1397,9 @@
 	#cta {
 		background: #e89980;
 		color: #f9e5df;
-		padding: 3.5em 0 4em 0;
+		padding: 3.5em 0 12em 0;
 		text-align: center;
+		height:100%;
 	}
 
 		#cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {

@@ -1,7 +1,6 @@
 <%@page import="nes.EncryptionStart"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 	<head>
@@ -30,27 +29,9 @@
 				<h1><a href="index.html">Encryptic</a> [beta]</h1>
 				<nav id="nav">
 					<ul>
-					
 						<li><a href="index.html">Home</a></li>
-						<li>
-							<a href="" class="icon fa-angle-down">Quick Links</a>
-							<ul>
-								<li><a href="encrypt.html">Encrypt</a></li>
-								<li><a href="decrypt.html">Decrypt</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li>
-									<!--<a href="">Submenu</a>
-									<ul>
-										<li><a href="#">Option One</a></li>
-										<li><a href="#">Option Two</a></li>
-										<li><a href="#">Option Three</a></li>
-										<li><a href="#">Option Four</a></li>
-									</ul>
-								</li>
-								-->
-							</ul>
-						</li>
-						<li><a href="signup.jsp"><h4>Sign up</h4></a></li>
+						
+						<li><a href="logout.jsp"><h4>Logout</h4></a></li>
 					</ul>
 				</nav>
 			</header>
@@ -84,7 +65,7 @@
 							<input type="number" name="phone" size ="10" placeholder="Phone Number" required/>
 							</div>
 							<div class="6u 12u(mobilep)">
-							<input type="DATE" name="dob" id="dob" value="Date of birth"   required/>
+							<input type="date" name="dob" id="dob" value="Date of birth"   required/>
 							</div>
 							</div>
 							</center>
@@ -92,7 +73,7 @@
 						<div class="row uniform">
 							<div class="12u">
 								<ul class="actions align-center">
-									<li><input type="submit" value="Create Account" /></li>
+									<li><input type="submit" value="Sign Up" /></li>
 								</ul>
 							</div>
 						</div>
@@ -105,18 +86,19 @@
 			
 		<!-- Footer -->
 			<footer id="footer">
-				<ul class="icons">
+				<!--  <ul class="icons">
 					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
 					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
 					<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-				</ul>
+				</ul> -->
 				<ul class="copyright">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; Encryptic. A Project by Subhayan Bhattacharya & Bhaskar Ghosh dastidar</li><li> <a href=#></a></li>
 				</ul>
 			</footer>
+			
 
 	</body>
 </html>
